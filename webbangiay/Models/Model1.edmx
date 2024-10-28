@@ -1,0 +1,280 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="NguyenthidiemhuongModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="DANH_GIA_SAN_PHAM">
+          <Key>
+            <PropertyRef Name="ReviewID" />
+          </Key>
+          <Property Name="ReviewID" Type="int" Nullable="false" />
+          <Property Name="ProductID" Type="int" />
+          <Property Name="customerID" Type="int" />
+          <Property Name="Diem_danh_gia" Type="int" />
+          <Property Name="Nhan_xet" Type="text" />
+          <Property Name="Ngay_danh_gia" Type="datetime" />
+        </EntityType>
+        <EntityType Name="DON_HANG">
+          <Key>
+            <PropertyRef Name="OrderID" />
+          </Key>
+          <Property Name="OrderID" Type="int" Nullable="false" />
+          <Property Name="customerID" Type="int" />
+          <Property Name="Ngay_dat_hang" Type="datetime" />
+          <Property Name="Tong_tien" Type="decimal" Precision="10" Scale="2" />
+          <Property Name="Dia_chi" Type="varchar" MaxLength="200" />
+          <Property Name="Phuong_thuc_thanh_toan" Type="varchar" MaxLength="50" />
+          <Property Name="Ma_theo_doi" Type="varchar" MaxLength="90" />
+        </EntityType>
+        <EntityType Name="GIO_HANG">
+          <Key>
+            <PropertyRef Name="CartID" />
+          </Key>
+          <Property Name="CartID" Type="int" Nullable="false" />
+          <Property Name="ProductID" Type="int" />
+          <Property Name="So_luong" Type="int" />
+          <Property Name="San_pham_trong_gio" Type="int" />
+          <Property Name="Tong_so_tien" Type="decimal" Precision="10" Scale="2" />
+        </EntityType>
+        <EntityType Name="KHACH_HANG">
+          <Key>
+            <PropertyRef Name="MaKH" />
+          </Key>
+          <Property Name="MaKH" Type="int" Nullable="false" />
+          <Property Name="Ho_ten" Type="varchar" MaxLength="100" />
+          <Property Name="Tai_khoan" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="Mat_khau" Type="varchar" MaxLength="32" />
+          <Property Name="Dia_chi" Type="varchar" MaxLength="200" />
+          <Property Name="Dien_thoai" Type="varchar" MaxLength="30" />
+          <Property Name="Email" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="Ngay_sinh" Type="datetime" />
+          <Property Name="Ngay_cap_nhat" Type="datetime" />
+          <Property Name="Gioi_tinh" Type="tinyint" />
+          <Property Name="Tich_diem" Type="int" />
+          <Property Name="Trang_thai" Type="tinyint" />
+        </EntityType>
+        <EntityType Name="QUAN_TRI">
+          <Key>
+            <PropertyRef Name="Tai_khoan" />
+          </Key>
+          <Property Name="Tai_khoan" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="Mat_khau" Type="varchar" MaxLength="32" />
+          <Property Name="Trang_thai" Type="tinyint" />
+        </EntityType>
+        <EntityType Name="SAN_PHAM">
+          <Key>
+            <PropertyRef Name="ProductID" />
+          </Key>
+          <Property Name="ProductID" Type="int" Nullable="false" />
+          <Property Name="Ten_san_pham" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="Mo_ta" Type="text" />
+          <Property Name="So_luong_ton_kho" Type="int" />
+          <Property Name="Thuong_hieu" Type="varchar" MaxLength="50" />
+          <Property Name="Hinh_anh" Type="varchar" MaxLength="255" />
+          <Property Name="Mau" Type="varchar" MaxLength="50" />
+          <Property Name="Kich_thuoc" Type="varchar" MaxLength="50" />
+          <Property Name="Gia" Type="decimal" Precision="10" Scale="2" />
+        </EntityType>
+        <EntityContainer Name="NguyenthidiemhuongModelStoreContainer">
+          <EntitySet Name="DANH_GIA_SAN_PHAM" EntityType="Self.DANH_GIA_SAN_PHAM" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="DON_HANG" EntityType="Self.DON_HANG" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="GIO_HANG" EntityType="Self.GIO_HANG" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="KHACH_HANG" EntityType="Self.KHACH_HANG" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="QUAN_TRI" EntityType="Self.QUAN_TRI" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="SAN_PHAM" EntityType="Self.SAN_PHAM" Schema="dbo" store:Type="Tables" />
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="NguyenthidiemhuongModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="DANH_GIA_SAN_PHAM">
+          <Key>
+            <PropertyRef Name="ReviewID" />
+          </Key>
+          <Property Name="ReviewID" Type="Int32" Nullable="false" />
+          <Property Name="ProductID" Type="Int32" />
+          <Property Name="customerID" Type="Int32" />
+          <Property Name="Diem_danh_gia" Type="Int32" />
+          <Property Name="Nhan_xet" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="Ngay_danh_gia" Type="DateTime" Precision="3" />
+        </EntityType>
+        <EntityType Name="DON_HANG">
+          <Key>
+            <PropertyRef Name="OrderID" />
+          </Key>
+          <Property Name="OrderID" Type="Int32" Nullable="false" />
+          <Property Name="customerID" Type="Int32" />
+          <Property Name="Ngay_dat_hang" Type="DateTime" Precision="3" />
+          <Property Name="Tong_tien" Type="Decimal" Precision="10" Scale="2" />
+          <Property Name="Dia_chi" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+          <Property Name="Phuong_thuc_thanh_toan" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Ma_theo_doi" Type="String" MaxLength="90" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="GIO_HANG">
+          <Key>
+            <PropertyRef Name="CartID" />
+          </Key>
+          <Property Name="CartID" Type="Int32" Nullable="false" />
+          <Property Name="ProductID" Type="Int32" />
+          <Property Name="So_luong" Type="Int32" />
+          <Property Name="San_pham_trong_gio" Type="Int32" />
+          <Property Name="Tong_so_tien" Type="Decimal" Precision="10" Scale="2" />
+        </EntityType>
+        <EntityType Name="KHACH_HANG">
+          <Key>
+            <PropertyRef Name="MaKH" />
+          </Key>
+          <Property Name="MaKH" Type="Int32" Nullable="false" />
+          <Property Name="Ho_ten" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="Tai_khoan" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Mat_khau" Type="String" MaxLength="32" FixedLength="false" Unicode="false" />
+          <Property Name="Dia_chi" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+          <Property Name="Dien_thoai" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+          <Property Name="Email" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Ngay_sinh" Type="DateTime" Precision="3" />
+          <Property Name="Ngay_cap_nhat" Type="DateTime" Precision="3" />
+          <Property Name="Gioi_tinh" Type="Byte" />
+          <Property Name="Tich_diem" Type="Int32" />
+          <Property Name="Trang_thai" Type="Byte" />
+        </EntityType>
+        <EntityType Name="QUAN_TRI">
+          <Key>
+            <PropertyRef Name="Tai_khoan" />
+          </Key>
+          <Property Name="Tai_khoan" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Mat_khau" Type="String" MaxLength="32" FixedLength="false" Unicode="false" />
+          <Property Name="Trang_thai" Type="Byte" />
+        </EntityType>
+        <EntityType Name="SAN_PHAM">
+          <Key>
+            <PropertyRef Name="ProductID" />
+          </Key>
+          <Property Name="ProductID" Type="Int32" Nullable="false" />
+          <Property Name="Ten_san_pham" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Mo_ta" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="So_luong_ton_kho" Type="Int32" />
+          <Property Name="Thuong_hieu" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Hinh_anh" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="Mau" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Kich_thuoc" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Gia" Type="Decimal" Precision="10" Scale="2" />
+        </EntityType>
+        <EntityContainer Name="NguyenthidiemhuongEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="DANH_GIA_SAN_PHAM" EntityType="Self.DANH_GIA_SAN_PHAM" />
+          <EntitySet Name="DON_HANG" EntityType="Self.DON_HANG" />
+          <EntitySet Name="GIO_HANG" EntityType="Self.GIO_HANG" />
+          <EntitySet Name="KHACH_HANG" EntityType="Self.KHACH_HANG" />
+          <EntitySet Name="QUAN_TRI" EntityType="Self.QUAN_TRI" />
+          <EntitySet Name="SAN_PHAM" EntityType="Self.SAN_PHAM" />
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="NguyenthidiemhuongModelStoreContainer" CdmEntityContainer="NguyenthidiemhuongEntities">
+          <EntitySetMapping Name="DANH_GIA_SAN_PHAM">
+            <EntityTypeMapping TypeName="NguyenthidiemhuongModel.DANH_GIA_SAN_PHAM">
+              <MappingFragment StoreEntitySet="DANH_GIA_SAN_PHAM">
+                <ScalarProperty Name="ReviewID" ColumnName="ReviewID" />
+                <ScalarProperty Name="ProductID" ColumnName="ProductID" />
+                <ScalarProperty Name="customerID" ColumnName="customerID" />
+                <ScalarProperty Name="Diem_danh_gia" ColumnName="Diem_danh_gia" />
+                <ScalarProperty Name="Nhan_xet" ColumnName="Nhan_xet" />
+                <ScalarProperty Name="Ngay_danh_gia" ColumnName="Ngay_danh_gia" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="DON_HANG">
+            <EntityTypeMapping TypeName="NguyenthidiemhuongModel.DON_HANG">
+              <MappingFragment StoreEntitySet="DON_HANG">
+                <ScalarProperty Name="OrderID" ColumnName="OrderID" />
+                <ScalarProperty Name="customerID" ColumnName="customerID" />
+                <ScalarProperty Name="Ngay_dat_hang" ColumnName="Ngay_dat_hang" />
+                <ScalarProperty Name="Tong_tien" ColumnName="Tong_tien" />
+                <ScalarProperty Name="Dia_chi" ColumnName="Dia_chi" />
+                <ScalarProperty Name="Phuong_thuc_thanh_toan" ColumnName="Phuong_thuc_thanh_toan" />
+                <ScalarProperty Name="Ma_theo_doi" ColumnName="Ma_theo_doi" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="GIO_HANG">
+            <EntityTypeMapping TypeName="NguyenthidiemhuongModel.GIO_HANG">
+              <MappingFragment StoreEntitySet="GIO_HANG">
+                <ScalarProperty Name="CartID" ColumnName="CartID" />
+                <ScalarProperty Name="ProductID" ColumnName="ProductID" />
+                <ScalarProperty Name="So_luong" ColumnName="So_luong" />
+                <ScalarProperty Name="San_pham_trong_gio" ColumnName="San_pham_trong_gio" />
+                <ScalarProperty Name="Tong_so_tien" ColumnName="Tong_so_tien" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="KHACH_HANG">
+            <EntityTypeMapping TypeName="NguyenthidiemhuongModel.KHACH_HANG">
+              <MappingFragment StoreEntitySet="KHACH_HANG">
+                <ScalarProperty Name="MaKH" ColumnName="MaKH" />
+                <ScalarProperty Name="Ho_ten" ColumnName="Ho_ten" />
+                <ScalarProperty Name="Tai_khoan" ColumnName="Tai_khoan" />
+                <ScalarProperty Name="Mat_khau" ColumnName="Mat_khau" />
+                <ScalarProperty Name="Dia_chi" ColumnName="Dia_chi" />
+                <ScalarProperty Name="Dien_thoai" ColumnName="Dien_thoai" />
+                <ScalarProperty Name="Email" ColumnName="Email" />
+                <ScalarProperty Name="Ngay_sinh" ColumnName="Ngay_sinh" />
+                <ScalarProperty Name="Ngay_cap_nhat" ColumnName="Ngay_cap_nhat" />
+                <ScalarProperty Name="Gioi_tinh" ColumnName="Gioi_tinh" />
+                <ScalarProperty Name="Tich_diem" ColumnName="Tich_diem" />
+                <ScalarProperty Name="Trang_thai" ColumnName="Trang_thai" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="QUAN_TRI">
+            <EntityTypeMapping TypeName="NguyenthidiemhuongModel.QUAN_TRI">
+              <MappingFragment StoreEntitySet="QUAN_TRI">
+                <ScalarProperty Name="Tai_khoan" ColumnName="Tai_khoan" />
+                <ScalarProperty Name="Mat_khau" ColumnName="Mat_khau" />
+                <ScalarProperty Name="Trang_thai" ColumnName="Trang_thai" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="SAN_PHAM">
+            <EntityTypeMapping TypeName="NguyenthidiemhuongModel.SAN_PHAM">
+              <MappingFragment StoreEntitySet="SAN_PHAM">
+                <ScalarProperty Name="ProductID" ColumnName="ProductID" />
+                <ScalarProperty Name="Ten_san_pham" ColumnName="Ten_san_pham" />
+                <ScalarProperty Name="Mo_ta" ColumnName="Mo_ta" />
+                <ScalarProperty Name="So_luong_ton_kho" ColumnName="So_luong_ton_kho" />
+                <ScalarProperty Name="Thuong_hieu" ColumnName="Thuong_hieu" />
+                <ScalarProperty Name="Hinh_anh" ColumnName="Hinh_anh" />
+                <ScalarProperty Name="Mau" ColumnName="Mau" />
+                <ScalarProperty Name="Kich_thuoc" ColumnName="Kich_thuoc" />
+                <ScalarProperty Name="Gia" ColumnName="Gia" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>
